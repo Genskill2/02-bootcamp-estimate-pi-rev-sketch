@@ -1,5 +1,26 @@
 import math
 import unittest
+import random as r
+import math as m
+
+
+
+def wallis(iterations):
+ pi=1.0
+ for i in range(1,iterations):
+   pi*=(float(4*i**2)/(4*i**2-1))
+   
+ return 2*pi   
+ 
+def monte_carlo(frequency):
+   inside=0
+   for i in range(0,frequency):
+     x1=r.random()**2
+     y1=r.random()**2
+     if(m.sqrt(x1+y1) < 1.0):
+         inside += 1
+   pi = (float(inside) / frequency) *4
+   return pi
 
 class TestWallis(unittest.TestCase):
     def test_low_iters(self):
